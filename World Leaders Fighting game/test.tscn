@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg3yepmue5utl"]
+
+[ext_resource type="Script" path="res://Xi_jin_pingTest.gd" id="1_gen17"]
+[ext_resource type="Texture2D" uid="uid://biykmtn6n3bo4" path="res://spritesheet (2)_scaled_3x_pngcrushed_scaled_2x_pngcrushed.png" id="2_68677"]
+[ext_resource type="AnimationLibrary" uid="uid://833hh8sh4dpx" path="res://Xi_jin_Ping_anim.res" id="3_iltqb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0r0i"]
+size = Vector2(328, 122)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_gen17")
+
+[node name="Spritesheet(2)Scaled3xPngcrushedScaled2xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(2, -24.875)
+scale = Vector2(1.74242, 1.62758)
+texture = ExtResource("2_68677")
+hframes = 6
+vframes = 6
+frame = 23
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 75)
+shape = SubResource("RectangleShape2D_y0r0i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Spritesheet(2)Scaled3xPngcrushedScaled2xPngcrushed")
+libraries = {
+"Xi_jin_Ping_anim": ExtResource("3_iltqb")
+}

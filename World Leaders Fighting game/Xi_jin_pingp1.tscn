@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cg6f13df3qx81"]
+
+[ext_resource type="Script" path="res://Xi_jing_ping_p2.gd" id="1_f7g8f"]
+[ext_resource type="Texture2D" uid="uid://biykmtn6n3bo4" path="res://spritesheet (2)_scaled_3x_pngcrushed_scaled_2x_pngcrushed.png" id="2_75vfj"]
+[ext_resource type="AnimationLibrary" uid="uid://833hh8sh4dpx" path="res://Xi_jin_Ping_anim.res" id="3_gw5hv"]
+[ext_resource type="Script" path="res://Body_hitbox.gd" id="5_yjpjk"]
+[ext_resource type="Script" path="res://Attack_Hitbox.gd" id="6_hcl64"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp65i"]
+size = Vector2(109, 221.813)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn7wk"]
+size = Vector2(82, 221)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikvql"]
+radius = 6.7082
+
+[node name="XijinPing2" type="CharacterBody2D"]
+script = ExtResource("1_f7g8f")
+metadata/_edit_horizontal_guides_ = [-151.0]
+
+[node name="CollisionHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_cp65i")
+
+[node name="Spritesheet" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+scale = Vector2(0.808712, 0.856061)
+texture = ExtResource("2_75vfj")
+hframes = 6
+vframes = 6
+frame = 33
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": ExtResource("3_gw5hv")
+}
+
+[node name="Body_hitbox" type="Area2D" parent="."]
+script = ExtResource("5_yjpjk")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Body_hitbox"]
+position = Vector2(-2, 4.5)
+shape = SubResource("RectangleShape2D_jn7wk")
+
+[node name="Attack_Hitbox" type="Area2D" parent="."]
+script = ExtResource("6_hcl64")
+
+[node name="A_Hitbox" type="CollisionShape2D" parent="Attack_Hitbox"]
+position = Vector2(126, -581)
+shape = SubResource("CircleShape2D_ikvql")
