@@ -11,4 +11,11 @@ func process(_delta):
 	pass
 
 
+
 	
+
+
+func _on_attack_hitbox_body_entered(body):
+	if body.has_method("damage"):
+		body.damage()
+		body.knockback()

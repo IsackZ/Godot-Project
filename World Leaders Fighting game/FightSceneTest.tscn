@@ -1,16 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw1os8s3gt683"]
+[gd_scene load_steps=12 format=3 uid="uid://cw1os8s3gt683"]
 
 [ext_resource type="Texture2D" uid="uid://bm5f78kxrl0dx" path="res://Chinese backdrop (true)_scaled_10x_pngcrushed.png" id="1_brt0f"]
+[ext_resource type="Script" path="res://FightSceneTest.gd" id="1_y1i3u"]
 [ext_resource type="PackedScene" uid="uid://d02oj4klvoa30" path="res://World_boundary.tscn" id="3_oxrk8"]
-[ext_resource type="PackedScene" uid="uid://c00f20yxwnnks" path="res://Xi_jing_ping2_p1.tscn" id="4_j8e88"]
+[ext_resource type="PackedScene" uid="uid://justgr6s02jh" path="res://Xi_jing_ping2_p1.tscn" id="4_j8e88"]
 [ext_resource type="PackedScene" uid="uid://dghuefhbrs1a4" path="res://World_boundary_East.tscn" id="4_s42rf"]
 [ext_resource type="PackedScene" uid="uid://cjv0vu6erwp36" path="res://Xi_jin_ping2_p2.tscn" id="5_7fvk1"]
+[ext_resource type="Script" path="res://Healthp1.gd" id="5_hy6ag"]
+[ext_resource type="Script" path="res://Healthp2.gd" id="7_joahh"]
+[ext_resource type="Script" path="res://Shield1.gd" id="9_o42p8"]
+[ext_resource type="Script" path="res://Shield2.gd" id="10_w1lp7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8d4va"]
 size = Vector2(1155.5, 59.5)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 1)
+script = ExtResource("1_y1i3u")
 
 [node name="ChineseBackdrop(true)Scaled10xPngcrushed" type="Sprite2D" parent="."]
 position = Vector2(580, 320)
@@ -34,3 +40,30 @@ position = Vector2(990, 476)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(580, 621)
 shape = SubResource("RectangleShape2D_8d4va")
+
+[node name="Health" type="Label" parent="."]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 114.0
+offset_bottom = 33.0
+script = ExtResource("5_hy6ag")
+
+[node name="Health2" type="Label" parent="."]
+offset_left = 1120.0
+offset_right = 1246.0
+offset_bottom = 34.0
+script = ExtResource("7_joahh")
+
+[node name="Shield1" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 23.0
+offset_right = 43.0
+offset_bottom = 46.0
+script = ExtResource("9_o42p8")
+
+[node name="Shield2" type="Label" parent="."]
+offset_left = 1120.0
+offset_top = 23.0
+offset_right = 1160.0
+offset_bottom = 46.0
+script = ExtResource("10_w1lp7")

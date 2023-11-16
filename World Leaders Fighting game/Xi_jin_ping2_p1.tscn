@@ -1,27 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://justgr6s02jh"]
+[gd_scene load_steps=9 format=3 uid="uid://c00f20yxwnnks"]
 
-[ext_resource type="Script" path="res://Xi_jin_ping2_p1.gd" id="1_7a8nm"]
+[ext_resource type="Script" path="res://Xi_jing_ping2_p1.gd" id="1_x3mcn"]
 [ext_resource type="Texture2D" uid="uid://biykmtn6n3bo4" path="res://spritesheet (2)_scaled_3x_pngcrushed_scaled_2x_pngcrushed.png" id="2_lw7wu"]
 [ext_resource type="AnimationLibrary" uid="uid://833hh8sh4dpx" path="res://Xi_jin_Ping_anim.res" id="3_of1ex"]
 [ext_resource type="Script" path="res://Body_hitbox.gd" id="4_tnjar"]
 [ext_resource type="Script" path="res://Attack_Hitbox.gd" id="5_cv47q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_88d3k"]
-size = Vector2(124, 213.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxkui"]
+size = Vector2(89.8438, 225.469)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jn7wk"]
 size = Vector2(82, 221)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v80id"]
-radius = 13.0384
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikvql"]
+radius = 3.60555
 
 [node name="XijinPingp1" type="CharacterBody2D"]
-script = ExtResource("1_7a8nm")
+script = ExtResource("1_x3mcn")
 metadata/_edit_horizontal_guides_ = [-151.0]
 
 [node name="CollisionHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-1.125, -16.875)
-shape = SubResource("RectangleShape2D_88d3k")
+position = Vector2(-25.75, -1.625)
+shape = SubResource("RectangleShape2D_nxkui")
 
 [node name="Spritesheet" type="Sprite2D" parent="."]
 position = Vector2(0, 32)
@@ -29,7 +29,7 @@ scale = Vector2(0.808712, 0.856061)
 texture = ExtResource("2_lw7wu")
 hframes = 6
 vframes = 6
-frame = 4
+frame = 25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -47,7 +47,7 @@ shape = SubResource("RectangleShape2D_jn7wk")
 script = ExtResource("5_cv47q")
 
 [node name="A_Hitbox" type="CollisionShape2D" parent="Attack_Hitbox"]
-position = Vector2(0, -435)
-shape = SubResource("CircleShape2D_v80id")
+position = Vector2(126, -581)
+shape = SubResource("CircleShape2D_ikvql")
 
 [connection signal="body_entered" from="Attack_Hitbox" to="Body_hitbox" method="_on_attack_hitbox_body_entered"]

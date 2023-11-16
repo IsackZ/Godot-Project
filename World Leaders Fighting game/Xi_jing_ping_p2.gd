@@ -13,16 +13,17 @@ var jumps
 #attack debug
 #attack animations are buggy
 var attack = false
-var punch = false
+var punch = P1GlobalSetting.punch1
 var projectile = false
 var passive = false
-var kick = false
+var kick = P1GlobalSetting.kick1
 #honey values
 var honey = false
 var honey_hits = 0
 #health
 var health = 100
-var previousHealth = GlobalHealth.p1health
+var previousHealth = P2GlobalSetting.p2health
+
 
 @onready var M_animation = $AnimationPlayer
 
@@ -99,9 +100,11 @@ func actions():
 			honey = true
 			honey_hits = 5
 			M_animation.play("Passive")
+			P1GlobalSetting.passive1 = true
 			await get_tree().create_timer(2).timeout
 			attack = false
 			passive = false
+			P1GlobalSetting.passive1 = false
 	return
 #jump function
 func jump():
@@ -143,5 +146,5 @@ func walking():
 #damage
 
 func damage():
-	if GlobalHealth.p1player != previousHealth:
+	if P1GlobalSetting.p1player != previousHealth:
 		velocity.x = -SPEED
